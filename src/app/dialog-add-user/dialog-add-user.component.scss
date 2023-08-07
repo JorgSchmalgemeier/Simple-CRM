@@ -1,0 +1,12 @@
+.mat-form-field {
+  margin-top: 5px;
+}
+
+.dialog-container {
+  position: relative;
+
+    mat-progress-bar {
+      position: absolute;
+      top: 0;
+    }
+}
