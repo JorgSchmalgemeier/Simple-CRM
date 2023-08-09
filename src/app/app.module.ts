@@ -26,6 +26,10 @@ import { AngularFireModule } from '@angular/fire/compat';
 //import { provideAuth,getAuth } from '@angular/fire/auth';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatCardModule } from '@angular/material/card';
+import { UserDetailComponent } from './user-detail/user-detail.component';
+import { MatMenuModule } from '@angular/material/menu';
+import { DialogEditAddressComponent } from './dialog-edit-address/dialog-edit-address.component';
+import { DialogEditUserComponent } from './dialog-edit-user/dialog-edit-user.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +37,9 @@ import { MatCardModule } from '@angular/material/card';
     DashboardComponent,
     UserComponent,
     DialogAddUserComponent,
+    UserDetailComponent,
+    DialogEditAddressComponent,
+    DialogEditUserComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,7 +62,8 @@ import { MatCardModule } from '@angular/material/card';
     //provideDatabase(() => getDatabase()),
     //provideAuth(() => getAuth()),
     MatProgressBarModule,
-    MatCardModule
+    MatCardModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent],
