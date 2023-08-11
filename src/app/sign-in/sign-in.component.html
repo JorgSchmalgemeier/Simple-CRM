@@ -1,0 +1,28 @@
+<div class="sign-in-container" *ngIf="!hideSignIn">
+  <mat-card>
+    <mat-card-content class="mat-card-content">
+      <h1 mat-dialog-title>Log-in</h1>
+      <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+    <form class="example-form">
+        <mat-form-field class="mat-form-field" appearance="outline" class="full-width">
+          <mat-label>E-Mail</mat-label>
+          <input matInput placeholder="E-Mail" />
+          <!-- <mat-hint>Please enter an email address</mat-hint> -->
+        </mat-form-field>
+        <mat-form-field class="mat-form-field" appearance="outline" class="full-width">
+          <mat-label>Password</mat-label>
+          <input matInput placeholder="Password" />
+          <!-- <mat-hint>Please enter an email address</mat-hint> -->
+        </mat-form-field>
+
+        <div mat-dialog-actions class="btn-container">
+          <button [disabled]="loading" mat-button>Sign-in</button>
+          <div class="sign-up-box">
+            <span>No account?</span>
+            <button routerLink="/register-user" (click)="hideSignInLayout()" [disabled]="loading" mat-button cdkFocusInitial>Sign-up</button>
+          </div>
+        </div>
+    </form>
+  </mat-card-content>
+  </mat-card>
+</div>
