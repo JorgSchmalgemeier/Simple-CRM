@@ -17,7 +17,10 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatSelectModule } from '@angular/material/select';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
@@ -39,6 +42,11 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
+import { NgChartsModule } from 'ng2-charts';
+import { AddReviewComponent } from './add-review/add-review.component';
+import { ReviewsComponent } from './reviews/reviews.component';
+import { NewsMoreComponent } from './news-more/news-more.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,6 +59,9 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
     SignUpComponent,
     SignInComponent,
     ForgotPasswordComponent,
+    ReviewsComponent,
+    AddReviewComponent,
+    NewsMoreComponent,
   ],
   imports: [
     BrowserModule,
@@ -66,7 +77,10 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
     MatFormFieldModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatSelectModule,
     FormsModule,
+    ReactiveFormsModule,
+    MatExpansionModule,
     AngularFireModule.initializeApp(environment.firebase),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore()),
@@ -78,7 +92,8 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
     AngularFireAuthModule,
     AngularFireStorageModule,
     AngularFirestoreModule,
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    NgChartsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

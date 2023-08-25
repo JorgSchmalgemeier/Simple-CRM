@@ -14,6 +14,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class UserComponent implements OnInit {
   user = new User();
   allUsers = [];
+  public loading = true;
 
   constructor(public dialog: MatDialog, private firestore: AngularFirestore, private router: Router, private route: ActivatedRoute,) {}
 
@@ -26,6 +27,10 @@ export class UserComponent implements OnInit {
         this.allUsers = changes;
         console.log(this.allUsers);
       });
+
+      setTimeout(() => {
+        this.loading = false;
+      }, 1500);
   }
 
   openDialog() {

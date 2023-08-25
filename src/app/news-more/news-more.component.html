@@ -1,0 +1,29 @@
+<div class="app-container" [class.finished-loading]="!loading">
+<div class="news-container" *ngIf="!loading">
+  <mat-card class="example-card mat-card" *ngFor="let news of newsJson">
+    <mat-card-header>
+      <mat-card-title class="mat-card-title">{{ news["title"] }}</mat-card-title>
+      <mat-card-subtitle class="subtitle">{{ news["source"] }}</mat-card-subtitle>
+    </mat-card-header>
+    <img class="news-img"
+      mat-card-image
+      src="{{ news['banner_image'] }}"
+      alt="Title picture (currently not available)"
+    />
+    <mat-card-content class="summary">
+      <p>
+        {{ news["summary"] }}
+      </p>
+    </mat-card-content>
+    <mat-card-actions class="btn-box">
+      <a href="{{ news['url'] }}" target="_blank"><button mat-button>READ MORE</button></a>
+    </mat-card-actions>
+  </mat-card>
+</div>
+
+
+<div *ngIf="loading" class="spinner-div">
+  <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+</div>
+
+</div>

@@ -8,31 +8,25 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class AppComponent implements OnInit {
   title = 'simple-crm';
-  hideMenu: Boolean = false;
+  hideMenu: Boolean = true;
+  showSignIn: Boolean = false;
   url!: string;
-  signInActive: Boolean = false;
-  registerUserActive: Boolean = false;
-  forgotPasswordActive: Boolean = false;
 
   constructor(private Route: ActivatedRoute, private router: Router) {}
 
   ngOnInit(): void {
     setInterval(() => {
       this.url = window.location.href;
-    if (this.url == 'http://localhost:4200/sign-in') {
+    if (this.url == 'http://localhost:4200/') {
       this.hideMenu = true;
-      this.signInActive = true;
+      this.showSignIn = true;
+    } else {
+      this.hideMenu = false;
+      this.showSignIn = false;
     }
-    if (this.url == 'http://localhost:4200/register-user') {
-      this.hideMenu = true;
-      this.registerUserActive = true;
-      this.signInActive = false;
-    }
-    if (this.url == 'http://localhost:4200/forgot-password') {
-      this.hideMenu = true;
-      this.forgotPasswordActive = true;
-    }
-    }, 50/ 1000);
-
+    // if (this.url == 'http://localhost:4200/dashboard') {
+    //   this.hideMenu = false;
+    // }
+    }, 100/ 1000);
   }
 }

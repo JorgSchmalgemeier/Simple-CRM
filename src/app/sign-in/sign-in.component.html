@@ -3,23 +3,29 @@
     <mat-card-content class="mat-card-content">
       <h1 mat-dialog-title>Log-in</h1>
       <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
-    <form class="example-form">
-        <mat-form-field class="mat-form-field" appearance="outline" class="full-width">
+
+    <form class="example-form" [formGroup]="signInForm">
+
+        <mat-form-field class="mat-form-field full-width">
           <mat-label>E-Mail</mat-label>
-          <input matInput placeholder="E-Mail" />
-          <!-- <mat-hint>Please enter an email address</mat-hint> -->
+          <input formControlName="emailForm" matInput placeholder="E-Mail" type="email" #userName />
         </mat-form-field>
-        <mat-form-field class="mat-form-field" appearance="outline" class="full-width">
-          <mat-label>Password</mat-label>
-          <input matInput placeholder="Password" />
-          <!-- <mat-hint>Please enter an email address</mat-hint> -->
+        <div *ngIf="emailForm?.invalid && (emailForm?.dirty || emailForm?.touched)">
+          <div class="alert-letters" [ngStyle]="{'top.px': 173}" *ngIf="emailForm?.errors?.['email']">Please enter a valid email address</div>
+        </div>
+
+        <mat-form-field class="mat-form-field full-width">
+          <mat-label>Enter your password</mat-label>
+          <input formControlName="passwordForm" #userPassword type="password" matInput [type]="hide ? 'password' : 'text'">
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
         </mat-form-field>
 
         <div mat-dialog-actions class="btn-container">
-          <button [disabled]="loading" mat-button>Sign-in</button>
-          <div class="sign-up-box">
-            <span>No account?</span>
-            <button routerLink="/register-user" (click)="hideSignInLayout()" [disabled]="loading" mat-button cdkFocusInitial>Sign-up</button>
+          <div class="btn-box">
+            <button class="sign-in-btn" [disabled]="loading" mat-button (click)="authService.SignIn(userName.value, userPassword.value)">Sign-in</button>
+            <button routerLink="/dashboard" (click)="hideSignInLayout()" [disabled]="loading" mat-button cdkFocusInitial>Guest log-in</button>
           </div>
         </div>
     </form>

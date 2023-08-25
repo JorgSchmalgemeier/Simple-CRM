@@ -1,0 +1,181 @@
+<div class="app-container" [class.finished-loading]="!loading">
+<div class="reviews-container" *ngIf="!loading">
+<div class="headline-box">
+  <span class="headline"> Customer Product Reviews </span>
+  <button (click)="openDialog()" mat-raised-button color="primary">Add review</button>
+</div>
+
+<div class="accordion-container">
+  <mat-accordion class="accordion-container">
+    <mat-expansion-panel
+      (opened)="panelOpenState = true"
+      (closed)="panelOpenState = false"
+    >
+      <mat-expansion-panel-header class="panel-header">
+        <mat-panel-title class="mat-panel-title">
+          <span class="product-name">
+            Product One ({{ reviewsService.reviewsProductOne.length }} reviews
+            <img class="star-img" src="assets/img/star1.png" /><img
+              class="star-img"
+              src="assets/img/star1.png"
+            /><img class="star-img" src="assets/img/star1.png" /><img
+              class="star-img"
+              src="assets/img/star1.png"
+            />)
+          </span>
+        </mat-panel-title>
+        <mat-panel-description>
+          {{ panelOpenState ? "" : "" }}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <div>
+        <div class="search-box">
+          <input class="search-input" placeholder="Search review">
+          <img class="search-icon" src="assets/img/search-icon.png">
+        </div>
+
+        <div class="all-reviews-box">
+          <div class="review-card" *ngFor="let review of reviewsService.reviewsProductOne">
+            <div class="headline-rating-box">
+              <span class="card-headline">
+                {{ review['title'] }}
+              </span>
+              <span class="rating-box">
+                <img *ngIf="review.rating['0'] > 0" class="star-img" src="assets/img/star1.png"/>
+                <img *ngIf="review.rating['0'] > 1" class="star-img" src="assets/img/star1.png" />
+                <img *ngIf="review.rating['0'] > 2" class="star-img" src="assets/img/star1.png" />
+                <img *ngIf="review.rating['0'] > 3" class="star-img" src="assets/img/star1.png" />
+                <img *ngIf="review.rating['0'] > 4" class="star-img" src="assets/img/star1.png" />
+              </span>
+            </div>
+            <span class="span-text">
+              {{ review['text'] }}
+            </span>
+            <span class="name-date">
+              {{ review['costumerName'] }},
+              {{ review['day'] }}.{{ review['month'] }}.{{ review['year'] }}
+            </span>
+          </div>
+        </div>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
+
+<div class="accordion-container">
+  <mat-accordion>
+    <mat-expansion-panel
+      (opened)="panelOpenState = true"
+      (closed)="panelOpenState = false"
+    >
+      <mat-expansion-panel-header class="panel-header">
+        <mat-panel-title class="mat-panel-title">
+          <span class="product-name">
+            Product Two ({{ reviewsService.reviewsProductTwo.length }} reviews
+            <img class="star-img" src="assets/img/star1.png" /><img
+              class="star-img"
+              src="assets/img/star1.png"
+            /><img class="star-img" src="assets/img/star1.png" /><img
+              class="star-img"
+              src="assets/img/star1.png"
+            />)
+          </span>
+        </mat-panel-title>
+        <mat-panel-description>
+          {{ panelOpenState ? "" : "" }}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <div>
+        <div class="search-box">
+          <input class="search-input" placeholder="Search review">
+          <img class="search-icon" src="assets/img/search-icon.png">
+        </div>
+
+        <div class="all-reviews-box">
+          <div class="review-card" *ngFor="let review of reviewsService.reviewsProductTwo">
+              <div class="headline-rating-box">
+              <span class="card-headline">
+                {{ review['title'] }}
+              </span>
+              <span class="rating-box">
+                <img *ngIf="review.rating['0'] > 0" class="star-img" src="assets/img/star1.png"/>
+                <img *ngIf="review.rating['0'] > 1" class="star-img" src="assets/img/star1.png" />
+                <img *ngIf="review.rating['0'] > 2" class="star-img" src="assets/img/star1.png" />
+                <img *ngIf="review.rating['0'] > 3" class="star-img" src="assets/img/star1.png" />
+                <img *ngIf="review.rating['0'] > 4" class="star-img" src="assets/img/star1.png" />
+              </span>
+            </div>
+            <span class="span-text">
+              {{ review['text'] }}
+            </span>
+            <span class="name-date">
+              {{ review['costumerName'] }},
+              {{ review['day'] }}.{{ review['month'] }}.{{ review['year'] }}
+            </span>
+          </div>
+        </div>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
+
+<div class="accordion-container">
+  <mat-accordion>
+    <mat-expansion-panel
+      (opened)="panelOpenState = true"
+      (closed)="panelOpenState = false"
+    >
+      <mat-expansion-panel-header class="panel-header">
+        <mat-panel-title class="mat-panel-title">
+          <span class="product-name">
+            Product Three ({{ reviewsService.reviewsProductThree.length }} reviews
+            <img class="star-img" src="assets/img/star1.png" /><img
+              class="star-img"
+              src="assets/img/star1.png"
+            /><img class="star-img" src="assets/img/star1.png" />)
+          </span>
+        </mat-panel-title>
+        <mat-panel-description>
+          {{ panelOpenState ? "" : "" }}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <div>
+        <div class="search-box">
+          <input class="search-input" placeholder="Search review">
+          <img class="search-icon" src="assets/img/search-icon.png">
+        </div>
+
+        <div class="all-reviews-box">
+          <div class="review-card" *ngFor="let review of reviewsService.reviewsProductThree">
+            <div class="headline-rating-box">
+              <span class="card-headline">
+                {{ review['title'] }}
+              </span>
+              <span class="rating-box">
+                <img *ngIf="review.rating['0'] > 0" class="star-img" src="assets/img/star1.png"/>
+                <img *ngIf="review.rating['0'] > 1" class="star-img" src="assets/img/star1.png" />
+                <img *ngIf="review.rating['0'] > 2" class="star-img" src="assets/img/star1.png" />
+                <img *ngIf="review.rating['0'] > 3" class="star-img" src="assets/img/star1.png" />
+                <img *ngIf="review.rating['0'] > 4" class="star-img" src="assets/img/star1.png" />
+              </span>
+            </div>
+            <span class="span-text">
+              {{ review['text'] }}
+            </span>
+            <span class="name-date">
+              {{ review['costumerName'] }},
+              {{ review['day'] }}.{{ review['month'] }}.{{ review['year'] }}
+            </span>
+          </div>
+        </div>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
+</div>
+
+<div *ngIf="loading" class="spinner-div">
+  <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+</div>
+
+</div>

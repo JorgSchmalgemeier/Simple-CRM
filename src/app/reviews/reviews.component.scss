@@ -1,0 +1,143 @@
+.reviews-container {
+  padding-left: 48px;
+  padding-right: 48px;
+  padding-top: 32px;
+  padding-bottom: 32px;
+}
+
+.headline-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 32px;
+}
+
+.accordion-container {
+  margin-bottom: 32px;
+  position: relative;
+}
+
+.product-name {
+  font-size: 18px;
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.star-img {
+  width: 20px;
+  object-fit: cover;
+  margin-bottom: 2px;
+}
+
+.mat-mdc-form-field + .mat-mdc-form-field {
+  margin-left: 8px;
+}
+
+.mat-panel-title {
+  flex-basis: unset !important;
+}
+
+.panel-header {
+  padding: 5px 35px;
+}
+
+// .search-input {
+//   position: absolute;
+//   top: 70px;
+//   right: 29px;
+//   max-width: 189px;
+//   max-height: 70px;
+// }
+
+.all-reviews-box {
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  overflow-y: auto;
+  margin-top: 35px;
+}
+
+.all-reviews-box::-webkit-scrollbar {
+  width: 6px;
+}
+
+.all-reviews-box::-webkit-scrollbar-track {
+  border-radius: 2px;
+}
+
+.all-reviews-box::-webkit-scrollbar-thumb {
+  background: lightgray;
+  border-radius: 2px;
+}
+
+.mat-mdc-form-field-infix {
+  width: 137px !important;
+}
+
+.review-card {
+  border: 2px solid lightgray;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  margin-bottom: 16px;
+  margin-right: 5px;
+  border-radius: 10px;
+}
+
+.card-headline {
+  font-weight: 500;
+  font-size: 18px;
+  margin-bottom: 5px;
+  margin-right: 5px;
+}
+
+.add-user-btn {
+  position: absolute;
+  right: 56px;
+  bottom: 56px;
+}
+
+.search-box {
+  width: 120px;
+  height: 25px;
+  position: absolute;
+  top: 53px;
+  right: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  background-color: whitesmoke;
+  border-radius: 8px;
+  padding: 6px 5px 5px 10px;
+}
+
+.search-input {
+  width: 93px;
+  border: none;
+  background-color: whitesmoke;
+  border: none;
+  outline: none;
+}
+
+.search-icon {
+  width: 18px;
+  object-fit: cover;
+}
+
+.headline-rating-box {
+  display: flex;
+  align-items: center;
+}
+
+.rating-box {
+}
+
+.span-text {
+  margin: 5px 0;
+}
+
+.name-date {
+  font-weight: 500;
+}
