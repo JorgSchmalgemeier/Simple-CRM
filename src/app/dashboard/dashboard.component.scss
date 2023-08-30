@@ -8,6 +8,7 @@
   padding-right: 48px;
   padding-top: 32px;
   padding-bottom: 32px;
+  height: 100%;
 }
 
 .first-section {
@@ -30,15 +31,19 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 34px 10px 22px 10px;
 }
 
-.mat-card-content {
+.mat-card-content-line-chart {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   width: 100%;
   height: 100%;
+  padding: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
 }
 
 .text-box {
@@ -73,21 +78,21 @@
   width: 100%;
   display: flex;
   justify-content: space-around;
-  margin-top: 16px;
+  margin-top: 21px;
   font-size: 14px;
   font-weight: 500;
 }
 
 .product-one {
-  color: #ffa0b3;
+  color: #63AEFF;
 }
 
 .product-two {
-  color: #86c7f3;
+  color: #ffd502;
 }
 
 .product-three {
-  color: #ffe29a;
+  color: #45cb47;
 }
 
 .mat-menu {
@@ -208,3 +213,6 @@
 .margin-headline-review {
   margin-bottom: 25px;
 }
+
+
+

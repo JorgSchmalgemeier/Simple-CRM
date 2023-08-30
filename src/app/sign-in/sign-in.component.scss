@@ -25,7 +25,7 @@
   justify-content: space-between;
 }
 
-.btn-box {
+.btn-box-log-in {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -43,4 +43,25 @@
   left: 23px;
   font-weight: 400;
   font-size: 13px;
+}
+
+.alert-message {
+  color: red;
+  font-size: 14px;
+  margin-left: 5px;
+  margin-top: -6px;
+}
+
+.alert-letters-container-log-in {
+  width: 182px;
+  margin: 0;
+}
+
+.alert-letters-log-in {
+  color: red;
+  font-weight: 400;
+  font-size: 13px;
+  width: 182px;
+  margin-top: -20px;
+  margin-left: 10px;
 }

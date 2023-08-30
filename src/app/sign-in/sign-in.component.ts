@@ -1,4 +1,4 @@
-import { Component, ElementRef } from '@angular/core';
+import { Component, ElementRef, Input } from '@angular/core';
 import { AuthService } from "../shared/services/auth.service";
 import { FormControl, FormGroup } from '@angular/forms';
 import { Validators } from '@angular/forms';
@@ -12,6 +12,7 @@ export class SignInComponent {
   loading: Boolean = false;
   hideSignIn: Boolean = false;
   hide = true;
+
 
   signInForm = new FormGroup({
     emailForm: new FormControl('', [Validators.required,Validators.email,]),

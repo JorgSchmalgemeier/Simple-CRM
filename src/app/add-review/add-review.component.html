@@ -1,19 +1,20 @@
 <div class="dialog-container">
   <h1 mat-dialog-title>Add costumer review</h1>
   <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
-  <div mat-dialog-content>
+  <div mat-dialog-content class="mat-dialog-content">
+    <form [formGroup]="addReviewForm">
     <div class="dialog-box">
       <mat-form-field class="margin-right">
         <mat-label>Select Product</mat-label>
-        <mat-select [disabled]="loading" [(ngModel)]="review.product">
+        <mat-select [disabled]="loading" [(ngModel)]="review.product" formControlName="productForm">
           <mat-option value="Product One">Product One</mat-option>
           <mat-option value="Product Two">Product Two</mat-option>
           <mat-option value="Product Three">Product Three</mat-option>
         </mat-select>
       </mat-form-field>
       <mat-form-field>
-        <mat-label>Rating</mat-label>
-        <mat-select [disabled]="loading" [(ngModel)]="review.rating">
+        <mat-label>Select Rating</mat-label>
+        <mat-select [disabled]="loading" [(ngModel)]="review.rating" formControlName="ratingForm">
           <mat-option value="1">1 star</mat-option>
           <mat-option value="2">2 stars</mat-option>
           <mat-option value="3">3 stars</mat-option>
@@ -26,7 +27,10 @@
     <div>
       <mat-form-field class="mat-form-field margin-right full-width" appearance="outline">
         <mat-label>Review title</mat-label>
-        <input [disabled]="loading" matInput placeholder="Title of the review" [(ngModel)]="review.title" />
+        <input [disabled]="loading" matInput placeholder="Title of the review" [(ngModel)]="review.title" formControlName="titleForm" />
+        <div class="alert-letters-container" *ngIf="titleForm?.invalid && (titleForm?.dirty || titleForm?.touched)">
+          <div class="alert-letters" *ngIf="titleForm?.errors?.['required']">Title is required.</div>
+        </div>
         <!-- <mat-hint>Please enter an email address</mat-hint> -->
       </mat-form-field>
     </div>
@@ -34,16 +38,22 @@
     <div>
       <mat-form-field class="full-width">
         <mat-label>Review text</mat-label>
-        <textarea [disabled]="loading" matInput [(ngModel)]="review.text"></textarea>
+        <textarea [disabled]="loading" matInput [(ngModel)]="review.text" formControlName="textForm"></textarea>
       </mat-form-field>
+      <div class="alert-letters-container" style="position: unset; margin-bottom: 7px;" *ngIf="textForm?.invalid && (textForm?.dirty || textForm?.touched)">
+        <div class="alert-letters" style="margin-left: 20px; margin-top: -25px;" *ngIf="textForm?.errors?.['required']">Text is required.</div>
+      </div>
     </div>
 
     <div>
       <mat-form-field class="mat-form-field" appearance="outline" class="full-width">
         <mat-label>Date of review</mat-label>
-        <input [disabled]="loading" [(ngModel)]="reviewDate" matInput placeholder="Date of review" [matDatepicker]="picker2"/>
+        <input [disabled]="loading" [(ngModel)]="reviewDate" formControlName="dateForm" matInput placeholder="Date of review" [matDatepicker]="picker2"/>
         <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
         <mat-datepicker #picker2></mat-datepicker>
+        <div class="alert-letters-container" *ngIf="dateForm?.invalid && (dateForm?.dirty || dateForm?.touched)">
+          <div class="alert-letters" *ngIf="dateForm?.errors?.['required']">Date is required.</div>
+        </div>
         <!-- <mat-hint>Please enter a date</mat-hint> -->
       </mat-form-field>
     </div>
@@ -51,19 +61,18 @@
     <div>
       <mat-form-field class="mat-form-field full-width" appearance="outline">
         <mat-label>Name of the costumer</mat-label>
-        <input [disabled]="loading" matInput placeholder="Full name" [(ngModel)]="review.costumerName" />
+        <input [disabled]="loading" matInput placeholder="Full name" formControlName="customerNameForm" [(ngModel)]="review.costumerName" />
+        <div class="alert-letters-container" *ngIf="customerNameForm?.invalid && (customerNameForm?.dirty || customerNameForm?.touched)">
+          <div class="alert-letters" *ngIf="customerNameForm?.errors?.['required']">Name is required.</div>
+        </div>
         <!-- <mat-hint>Please enter an email address</mat-hint> -->
       </mat-form-field>
     </div>
-
-
-
-
-
+  </form>
   </div>
-  <div mat-dialog-actions>
+  <div mat-dialog-actions class="btn-box">
     <button [disabled]="loading" (click)="dialogRef.close()" mat-button>Cancel</button>
-    <button [disabled]="loading" (click)="saveReview()" mat-button cdkFocusInitial>Save</button>
+    <button [disabled]="loading" [disabled]="addReviewForm.invalid" (click)="saveReview()" mat-button cdkFocusInitial>Save</button>
   </div>
   </div>
 

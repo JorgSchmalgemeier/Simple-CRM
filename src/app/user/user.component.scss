@@ -20,45 +20,103 @@ mat-card-content {
   width: 100%;
   border-collapse: collapse;
 
-    tr {
-      border-bottom: 1px solid rgba(0,0,0,0.4);
-      cursor: pointer;
+  tr {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
 
-      &:first-child {
-        cursor: unset;
-        border-bottom: 0;
-
-        &:hover {
-          background-color: unset;
-        }
-      }
-
-      &:last-child {
-        border-bottom: 0;
-      }
-
-
-      td {
-        height: 48px;
-
-        &:first-child {
-          padding-left: 16px;
-        }
-      }
+    &:first-child {
+      cursor: unset;
+      border-bottom: 0;
 
       &:hover {
-        background-color: rgba(0,0,0,0.04);
+        background-color: unset;
       }
     }
 
-    th {
-      color: rgba(0, 0, 0, 0.4);
-      font-size: 14px;
-      font-weight: 500;
-      text-align: start;
+    &:last-child {
+      border-bottom: 0;
+    }
+
+    td {
+      height: 48px;
+      width: fit-content;
 
       &:first-child {
         padding-left: 16px;
       }
+
+      a {
+        text-decoration: none;
+        color: black;
+        width: fit-content;
+        display: block;
+        width: fit-content;
+      }
     }
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.04);
+      cursor: unset;
+    }
+  }
+
+  th {
+    color: rgba(0, 0, 0, 0.4);
+    font-size: 14px;
+    font-weight: 500;
+    text-align: start;
+
+    &:first-child {
+      padding-left: 16px;
+    }
+  }
+}
+
+.headline-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.search-box {
+  width: 130px;
+  height: 31px;
+  top: 53px;
+  right: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  background-color: whitesmoke;
+  border-radius: 8px;
+  padding: 6px 5px 5px 10px;
+}
+
+.search-input {
+  width: 105px;
+  border: none;
+  background-color: whitesmoke;
+  border: none;
+  outline: none;
+}
+
+.search-icon {
+  width: 18px;
+  object-fit: cover;
+}
+
+.td-flex {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.mail-icon {
+  color: #3F51B5;
+  margin-right: 3px;
 }

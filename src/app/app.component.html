@@ -1,5 +1,6 @@
 <mat-drawer-container *ngIf="!hideMenu" class="mat-drawer-container" autosize>
   <mat-drawer #drawer [opened]="true" class="sidenav" mode="side">
+    <div class="mat-drawer-box">
     <div class="logo-container">
       <span class="logo">CRM</span>
     </div>
@@ -8,15 +9,26 @@
         <mat-icon>fact_check</mat-icon>Dashboard
       </li>
       <li routerLink="/user" routerLinkActive="router-link-active">
-        <mat-icon>perm_identity</mat-icon>User
+        <mat-icon>perm_identity</mat-icon>Customer
       </li>
       <li routerLink="/reviews" routerLinkActive="router-link-active">
-        <mat-icon>star</mat-icon>Costumer Reviews
+        <mat-icon>star</mat-icon>Product Reviews
       </li>
       <li routerLink="/news-more" routerLinkActive="router-link-active">
         <mat-icon>feed</mat-icon>News
       </li>
     </ul>
+    <ul class="menu-items margin-menu">
+      <li routerLink="/" routerLinkActive="router-link-active">
+        <mat-icon>logout</mat-icon>Logout
+      </li>
+    </ul>
+    <div class="data-protection">
+      <span>Data Protection</span>
+      <div class="center-line">|</div>
+      <span>Privacy Policy</span>
+    </div>
+  </div>
   </mat-drawer>
 
   <div class="example-sidenav-content">

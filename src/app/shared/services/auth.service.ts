@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
   providedIn: 'root',
 })
 export class AuthService {
+  public error = false;
   userData: any; // Save logged in user data
   constructor(
     public afs: AngularFirestore, // Inject Firestore service
@@ -49,7 +50,8 @@ export class AuthService {
         });
       })
       .catch((error) => {
-        window.alert(error.message);
+        //window.alert(error.message);
+        this.error = true;
       });
   }
 

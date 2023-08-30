@@ -14,6 +14,7 @@ import { DialogEditUserComponent } from '../dialog-edit-user/dialog-edit-user.co
 export class UserDetailComponent implements OnInit {
   userId: string = '';
   user: User = new User();
+  public loading = true;
 
   constructor(private Route: ActivatedRoute,
     private firestore: AngularFirestore,
@@ -25,6 +26,10 @@ export class UserDetailComponent implements OnInit {
         this.userId = params['id'];
         console.log('got id', this.userId);
         this.getUser();
+
+        setTimeout(() => {
+          this.loading = false;
+        }, 1500);
   })
   }
 

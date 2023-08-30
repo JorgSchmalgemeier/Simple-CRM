@@ -2,16 +2,75 @@
 <div class="user-container" *ngIf="!loading">
   <mat-card>
     <mat-card-content>
-      <table class="user-table">
+      <div class="headline-box">
+        <span class="headline"> Customer</span>
+        <div class="search-box">
+          <input (keyup)="filterUser()" #inputUser class="search-input" placeholder="Search customer">
+          <img class="search-icon" src="assets/img/search-icon.png">
+        </div>
+      </div>
+
+      <table class="user-table" *ngIf="!filtered">
         <tr>
           <th>Name</th>
           <th>E-Mail</th>
-          <th>City</th>
+          <th>Phone</th>
         </tr>
-        <tr *ngFor="let user of allUsers" routerLink="{{ user['customIdName'] }}">
-          <td>{{ user['firstName'] }} {{ user['lastName'] }}</td>
-          <td>{{ user['email'] }}</td>
-          <td>{{ user['city'] }}</td>
+        <tr *ngFor="let user of allUsers">
+          <td>
+            <div class="td-flex" routerLink="{{ user['customIdName'] }}">
+              <mat-icon class="mail-icon">manage_accounts</mat-icon>
+              <span>{{ user['firstName'] }} {{ user['lastName'] }}</span>
+            </div>
+          </td>
+          <td>
+            <a href="mailto:{{ user['email'] }}">
+              <div class="td-flex">
+                <mat-icon class="mail-icon">outgoing_mail</mat-icon>
+                <span>{{ user['email'] }}</span>
+              </div>
+            </a>
+          </td>
+          <td>
+            <a href="tel:{{ user['phone'] }}">
+              <div class="td-flex">
+                <mat-icon class="mail-icon">phone_forwarded</mat-icon>
+                <span>{{ user['phone'] }}</span>
+              </div>
+            </a>
+          </td>
+        </tr>
+      </table>
+
+      <table class="user-table" *ngIf="filtered">
+        <tr>
+          <th>Name</th>
+          <th>E-Mail</th>
+          <th>Phone</th>
+        </tr>
+        <tr *ngFor="let user of currentUsers">
+          <td>
+            <div class="td-flex" routerLink="{{ user['customIdName'] }}">
+              <mat-icon class="mail-icon">manage_accounts</mat-icon>
+              <span>{{ user['firstName'] }} {{ user['lastName'] }}</span>
+            </div>
+          </td>
+          <td>
+            <a href="mailto:{{ user['email'] }}">
+              <div class="td-flex">
+                <mat-icon class="mail-icon">outgoing_mail</mat-icon>
+                <span>{{ user['email'] }}</span>
+              </div>
+            </a>
+          </td>
+          <td>
+            <a href="tel:{{ user['phone'] }}">
+              <div class="td-flex">
+                <mat-icon class="mail-icon">phone_forwarded</mat-icon>
+                <span>{{ user['phone'] }}</span>
+              </div>
+            </a>
+          </td>
         </tr>
       </table>
     </mat-card-content>

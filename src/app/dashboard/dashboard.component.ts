@@ -17,19 +17,18 @@ export class DashboardComponent implements OnInit {
   lineChart2021: Boolean = false;
 
   markers: any[] = [];
+  public loading = true;
 
   constructor(public reviewsService: ReviewsService) {}
 
   ngOnInit(): void {
     this.reviewsService.subscribeAllReviews();
-    console.log(this.reviewsService.reviewsProductOne);
-    this.test();
+
+    setTimeout(() => {
+      this.loading = false;
+    }, 1500);
   }
 
-
-  public test() {
-    console.log(this.reviewsService.reviewsProductOne.length);
-  }
 
   // Doughnut Graph Week
   public doughnutChartLabelsWeek: string[] = [
@@ -40,7 +39,7 @@ export class DashboardComponent implements OnInit {
   public doughnutChartDatasetsWeek: ChartConfiguration<'doughnut'>['data']['datasets'] =
     [{  data: [631, 467, 108],
         label: 'Sales',
-        backgroundColor: ["#00b8ffb0","#ffba00","#4CAF50"],
+        backgroundColor: ["#63AEFF","#ffd502","#45cb47"],
         //hoverBackgroundColor: ["#96b7b9","#718283","#5c6b6d"],
       }];
 
@@ -58,7 +57,7 @@ export class DashboardComponent implements OnInit {
   public doughnutChartDatasetsMonth: ChartConfiguration<'doughnut'>['data']['datasets'] =
     [{  data: [2567, 2098, 1268],
         label: 'Sales',
-        backgroundColor: ["#00b8ffb0","#ffba00","#4CAF50"],
+        backgroundColor: ["#63AEFF","#ffd502","#45cb47"],
         //hoverBackgroundColor: ["#96b7b9","#718283","#5c6b6d"],
       }];
 
@@ -77,30 +76,31 @@ export class DashboardComponent implements OnInit {
   public doughnutChartDatasetsYear: ChartConfiguration<'doughnut'>['data']['datasets'] =
     [{  data: [7340, 7784, 1467],
         label: 'Sales',
-        backgroundColor: ["#00b8ffb0","#ffba00","#4CAF50"],
+        backgroundColor: ["#63AEFF","#ffd502","#45cb47"],
         //hoverBackgroundColor: ["#96b7b9","#718283","#5c6b6d"],
       }];
 
   public doughnutChartOptionsYear: ChartConfiguration<'doughnut'>['options'] = {
     responsive: false,
+    maintainAspectRatio: false,
     cutout: 95,
   };
 
   //Line Chart 2023
 
   public lineChartData2023: ChartConfiguration<'line'>['data'] = {
-    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug'],
+    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'],
     datasets: [
       {
-        data: [65, 59, 80, 81, 56, 55, 40, 45],
-        label: 'Series A',
+        data: [65, 59, 80, 81, 56, 55, 40, 45, 55],
+        label: 'Sales',
         fill: true,
         tension: 0.2,
         borderColor: 'rgba(0, 0, 0, 0.1)',
-        backgroundColor: '#86c7f3b0',
-        pointBackgroundColor: '#86c7f3b0',
-        pointBorderColor: '#86c7f3b0',
-        hoverBorderColor: '#86c7f3b0',
+        backgroundColor: '#63aeffbf',
+        pointBackgroundColor: '#63aeffbf',
+        pointBorderColor: 'rgba(0,0,0,0.2)',
+        hoverBorderColor: 'rgba(0,0,0,0.2)',
         borderWidth: 1,
 
         // data: [ 65, 59, 80, 81, 56, 55, 40 ],
@@ -112,7 +112,8 @@ export class DashboardComponent implements OnInit {
     ],
   };
   public lineChartOptions2023: ChartOptions<'line'> = {
-    responsive: false,
+    responsive: true,
+    maintainAspectRatio: false,
     scales: {
       x: {
         grid: {
@@ -147,20 +148,21 @@ export class DashboardComponent implements OnInit {
     datasets: [
       {
         data: [55, 58, 77, 79, 55, 55, 60, 55, 56, 67, 70, 71],
-        label: 'Series A',
+        label: 'Sales',
         fill: true,
         tension: 0.2,
         borderColor: 'rgba(0, 0, 0, 0.1)',
-        backgroundColor: '#86c7f3b0',
-        pointBackgroundColor: '#86c7f3b0',
-        pointBorderColor: '#86c7f3b0',
-        hoverBorderColor: '#86c7f3b0',
+        backgroundColor: '#63aeffbf',
+        pointBackgroundColor: '#63aeffbf',
+        pointBorderColor: 'rgba(0,0,0,0.2)',
+        hoverBorderColor: 'rgba(0,0,0,0.2)',
         borderWidth: 1,
       },
     ],
   };
   public lineChartOptions2022: ChartOptions<'line'> = {
-    responsive: false,
+    responsive: true,
+    maintainAspectRatio: false,
     scales: {
       x: {
         grid: {
@@ -195,20 +197,21 @@ export class DashboardComponent implements OnInit {
     datasets: [
       {
         data: [30, 43, 55, 64, 55, 55, 60, 65, 56, 67, 80, 71],
-        label: 'Series A',
+        label: 'Sales',
         fill: true,
         tension: 0.2,
         borderColor: 'rgba(0, 0, 0, 0.1)',
-        backgroundColor: '#86c7f3b0',
-        pointBackgroundColor: '#86c7f3b0',
-        pointBorderColor: '#86c7f3b0',
-        hoverBorderColor: '#86c7f3b0',
+        backgroundColor: '#63aeffbf',
+        pointBackgroundColor: '#63aeffbf',
+        pointBorderColor: 'rgba(0,0,0,0.2)',
+        hoverBorderColor: 'rgba(0,0,0,0.2)',
         borderWidth: 1,
       },
     ],
   };
   public lineChartOptions2021: ChartOptions<'line'> = {
-    responsive: false,
+    responsive: true,
+    maintainAspectRatio: false,
     scales: {
       x: {
         grid: {
