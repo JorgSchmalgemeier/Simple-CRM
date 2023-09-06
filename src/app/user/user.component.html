@@ -73,12 +73,12 @@
           </td>
         </tr>
       </table>
+
+      <button (click)="openDialog()" class="add-user-btn" mat-fab color="primary" matTooltip="Add customer" matTooltipPosition="above">
+        <mat-icon>add</mat-icon>
+      </button>
     </mat-card-content>
   </mat-card>
-
-  <button (click)="openDialog()" class="add-user-btn" mat-fab color="primary" matTooltip="Add user" matTooltipPosition="above">
-    <mat-icon>add</mat-icon>
-  </button>
 </div>
 
 <div *ngIf="loading" class="spinner-div">

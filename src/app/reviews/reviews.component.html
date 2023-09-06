@@ -2,7 +2,7 @@
 <div class="reviews-container" *ngIf="!loading">
 <div class="headline-box">
   <span class="headline"> Customer Product Reviews </span>
-  <button (click)="openDialog()" mat-raised-button color="primary">Add review</button>
+  <button (click)="openDialog()" class="btn-add-review" mat-raised-button color="primary">Add review</button>
 </div>
 
 <div class="accordion-container">
@@ -15,7 +15,9 @@
       <mat-expansion-panel-header class="panel-header">
         <mat-panel-title class="mat-panel-title">
           <span class="product-name">
-            Product One ({{ reviewsService.reviewsProductOne.length }} reviews
+            <span>Product One&nbsp;</span>
+            <span class="stars-amount">
+            ({{ reviewsService.reviewsProductOne.length }} reviews
             <img class="star-img" src="assets/img/star1.png" /><img
               class="star-img"
               src="assets/img/star1.png"
@@ -23,6 +25,7 @@
               class="star-img"
               src="assets/img/star1.png"
             />)
+            </span>
           </span>
         </mat-panel-title>
         <mat-panel-description>
@@ -83,14 +86,10 @@
         </div>
         </div>
 
-
       </div>
     </mat-expansion-panel>
   </mat-accordion>
 </div>
-
-
-
 
 
 <div class="accordion-container">
@@ -103,14 +102,14 @@
       <mat-expansion-panel-header class="panel-header">
         <mat-panel-title class="mat-panel-title">
           <span class="product-name">
-            Product Two ({{ reviewsService.reviewsProductTwo.length }} reviews
-            <img class="star-img" src="assets/img/star1.png" /><img
-              class="star-img"
-              src="assets/img/star1.png"
-            /><img class="star-img" src="assets/img/star1.png" /><img
-              class="star-img"
-              src="assets/img/star1.png"
-            />)
+            <span>Product Two&nbsp;</span>
+            <span class="stars-amount">
+            ({{ reviewsService.reviewsProductTwo.length }} reviews
+            <img class="star-img" src="assets/img/star1.png"/>
+            <img class="star-img" src="assets/img/star1.png"/>
+            <img class="star-img" src="assets/img/star1.png"/>
+            <img class="star-img" src="assets/img/star1.png"/>)
+            </span>
           </span>
         </mat-panel-title>
         <mat-panel-description>
@@ -186,11 +185,15 @@
       <mat-expansion-panel-header class="panel-header">
         <mat-panel-title class="mat-panel-title">
           <span class="product-name">
-            Product Three ({{ reviewsService.reviewsProductThree.length }} reviews
-            <img class="star-img" src="assets/img/star1.png" /><img
-              class="star-img"
-              src="assets/img/star1.png"
-            /><img class="star-img" src="assets/img/star1.png" />)
+            <span>Product Three&nbsp;</span>
+            <span class="stars-amount">
+            ({{ reviewsService.reviewsProductThree.length }} reviews
+            <img class="star-img" src="assets/img/star1.png"/>
+            <img class="star-img" src="assets/img/star1.png"/>
+            <img class="star-img" src="assets/img/star1.png"/>
+            <img class="star-img" src="assets/img/star1.png"/>
+            <img class="star-img" src="assets/img/star1.png"/>)
+            </span>
           </span>
         </mat-panel-title>
         <mat-panel-description>

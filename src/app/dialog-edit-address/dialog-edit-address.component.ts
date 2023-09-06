@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { MatDialogRef } from '@angular/material/dialog';
-import { User } from 'src/moduls/user.class';
+import { Customer } from 'src/moduls/user.class';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Validators } from '@angular/forms';
 
@@ -10,8 +10,9 @@ import { Validators } from '@angular/forms';
   templateUrl: './dialog-edit-address.component.html',
   styleUrls: ['./dialog-edit-address.component.scss']
 })
+
 export class DialogEditAddressComponent {
-  user!: User;
+  customer!: Customer;
   userId!: string;
   loading = false;
 
@@ -50,16 +51,20 @@ export class DialogEditAddressComponent {
 
   constructor(public dialogRef: MatDialogRef<DialogEditAddressComponent>, private firestore: AngularFirestore) {}
 
+
+  /**
+   * Save the edited address in firebase
+   *
+   */
   saveUser() {
     this.loading = true;
     this.firestore
-      .collection('users')
+      .collection('customers')
       .doc(this.userId)
-      .update(this.user.toJSON())
+      .update(this.customer.toJSON())
       .then(() => {
         this.loading = false;
         this.dialogRef.close()
       });
   }
-
 }

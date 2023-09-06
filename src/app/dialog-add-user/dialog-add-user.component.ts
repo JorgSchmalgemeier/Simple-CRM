@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { User } from 'src/moduls/user.class';
+import { Customer } from 'src/moduls/user.class';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { MatDialogRef } from '@angular/material/dialog';
 import { FormControl, FormGroup } from '@angular/forms';
@@ -11,6 +11,7 @@ import { Validators } from '@angular/forms';
   styleUrls: ['./dialog-add-user.component.scss']
 })
 export class DialogAddUserComponent {
+  today = new Date();
 
   addUserForm = new FormGroup({
     firstNameForm: new FormControl('', [Validators.required, Validators.pattern("^[a-zA-ZöÖüÜäÄß\s]+$")]),
@@ -98,27 +99,33 @@ export class DialogAddUserComponent {
 
   constructor(public dialogRef: MatDialogRef<DialogAddUserComponent>, private firestore: AngularFirestore) {}
 
-  user = new User();
+  customer = new Customer();
   birthDate!: Date;
   loading = false;
 
 
-
+  /**
+   * Save the new user in firebase
+   *
+   */
   saveUser() {
-    this.user.birthDate = this.birthDate.getTime();
-    console.log('current user is', this.user);
+    this.customer.birthDate = this.birthDate.getTime();
     this.loading = true;
 
     this.firestore
-    .collection('users')
-    .add(this.user.toJSON())
+    .collection('customers')
+    .add(this.customer.toJSON())
     .then((result: any) => { //bei then wird etwas weiteres ausgeführt, nachdem add fertig ist
-      console.log('Adding user finished', result);
       this.loading = false;
       this.closeDialog();
     });
   }
 
+
+  /**
+   * Close the add user dialog
+   *
+   */
   closeDialog() {
     this.dialogRef.close();
   }

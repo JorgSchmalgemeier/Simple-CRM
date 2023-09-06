@@ -12,8 +12,9 @@ mat-card-content {
 
 .add-user-btn {
   position: absolute;
-  right: 56px;
-  bottom: 56px;
+  right: 15px;
+  bottom: 15px;
+  background-color: #63AEFF;
 }
 
 .user-table {
@@ -39,6 +40,7 @@ mat-card-content {
     td {
       height: 48px;
       width: fit-content;
+      font-size: 20px;
 
       &:first-child {
         padding-left: 16px;
@@ -117,6 +119,155 @@ mat-card-content {
 }
 
 .mail-icon {
-  color: #3F51B5;
+  color: #414453bf;
   margin-right: 3px;
+}
+
+
+//responsiv
+
+@media(max-width: 1800px) {
+  .user-table {
+    td {
+     font-size: 18px !important;
+      }
+  }
+}
+
+
+@media(max-width: 1600px) {
+  .user-table {
+    td {
+     font-size: 16px !important;
+      }
+  }
+}
+
+
+@media(max-width: 1400px) {
+  .user-table {
+    td {
+     font-size: 14px !important;
+      }
+  }
+}
+
+
+@media(max-width: 1200px) {
+  .user-container {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+
+
+@media(max-width: 1000px) {
+  .user-table {
+    display: flex;
+    flex-direction: column;
+
+    tr {
+      display: flex;
+      justify-content: start;
+      padding-left: 50px;
+      padding-right: 50px;
+    }
+
+    td {
+      width: 50% !important;
+
+      &:first-child {
+       margin-right: 50px;
+      }
+
+      &:last-child {
+        display: none;
+      }
+    }
+
+    th {
+      width: 50%;
+
+      &:first-child {
+        margin-right: 50px;
+      }
+
+      &:last-child {
+        display: none;
+      }
+    }
+  }
+}
+
+
+@media(max-width: 850px) {
+  .user-table {
+    tr {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
+}
+
+
+@media(max-width: 750px) {
+  .user-table {
+    tr {
+      padding-left: 25px;
+      padding-right: 5px;
+      justify-content: start;
+    }
+
+    td {
+      width: unset !important;
+      &:nth-child(even) {
+        display: none;
+      }
+
+      &:first-child {
+        margin-right: 0;
+      }
+    }
+
+    th {
+      width: 100%;
+      &:nth-child(even) {
+        display: none;
+      }
+    }
+  }
+}
+
+
+@media(max-width: 600px) {
+  .user-container {
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+}
+
+
+@media(max-width: 450px) {
+  .user-table {
+    tr {
+      padding-left: 5px;
+    }
+  }
+
+  .headline-box {
+    flex-direction: column;
+    align-items: start;
+  }
+
+  .search-box {
+    margin-top: 8px;
+    padding: 1px 5px 1px 5px;
+  }
+
+  .add-user-btn {
+    width: 35px;
+    height: 35px;
+  }
 }

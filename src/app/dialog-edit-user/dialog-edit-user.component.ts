@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { MatDialogRef } from '@angular/material/dialog';
-import { User } from 'src/moduls/user.class';
+import { Customer } from 'src/moduls/user.class';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Validators } from '@angular/forms';
 
@@ -10,11 +10,13 @@ import { Validators } from '@angular/forms';
   templateUrl: './dialog-edit-user.component.html',
   styleUrls: ['./dialog-edit-user.component.scss'],
 })
+
 export class DialogEditUserComponent implements OnInit {
-  user!: User;
+  customer!: Customer;
   userId!: string;
   loading = false;
   birthDate!: Date;
+  today = new Date();
 
   editUserForm = new FormGroup({
     firstNameForm: new FormControl('', [Validators.required, Validators.pattern("^[a-zA-ZöÖüÜäÄß\s]+$")]),
@@ -74,16 +76,20 @@ export class DialogEditUserComponent implements OnInit {
 
 
   ngOnInit() {
-    this.birthDate = new Date(this.user.birthDate);
+    this.birthDate = new Date(this.customer.birthDate);
   }
 
+
+  /**
+   * This function saves the edited user in firebase
+   *
+   */
   saveUser() {
-    //this.user.birthDate = this.birthDate.getTime();
     this.loading = true;
     this.firestore
-      .collection('users')
+      .collection('customers')
       .doc(this.userId)
-      .update(this.user.toJSON())
+      .update(this.customer.toJSON())
       .then(() => {
         this.loading = false;
         this.dialogRef.close()

@@ -1,4 +1,7 @@
 <div class="sign-in-container" *ngIf="!hideSignIn">
+
+  <img class="logo" src="assets/img/logo.png">
+
   <mat-card>
     <mat-card-content class="mat-card-content">
       <h1 mat-dialog-title>Log-in</h1>
@@ -15,9 +18,8 @@
           <div class="alert-letters-log-in" *ngIf="emailForm?.errors?.['email']">Email address is not valid.</div>
         </div>
 
-
         <mat-form-field class="mat-form-field full-width">
-          <mat-label>Enter your password</mat-label>
+          <mat-label>Password</mat-label>
           <input formControlName="passwordForm" #userPassword type="password" matInput [type]="hide ? 'password' : 'text'">
           <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
             <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
@@ -27,15 +29,15 @@
           <div class="alert-letters-log-in" *ngIf="passwordForm?.errors?.['required']">Password is required.</div>
         </div>
 
-        <div class="alert-message" *ngIf="authService.error">
-          Email or password is not correct or the account doesn't exist.
-        </div>
-
         <div mat-dialog-actions class="btn-container">
           <div class="btn-box-log-in">
             <button class="sign-in-btn" [disabled]="loading" mat-button (click)="authService.SignIn(userName.value, userPassword.value)">Sign-in</button>
             <button routerLink="/dashboard" (click)="hideSignInLayout()" [disabled]="loading" mat-button cdkFocusInitial>Guest log-in</button>
           </div>
+        </div>
+
+        <div class="alert-message" *ngIf="authService.error">
+          Email or password is not correct or the account doesn't exist.
         </div>
     </form>
   </mat-card-content>

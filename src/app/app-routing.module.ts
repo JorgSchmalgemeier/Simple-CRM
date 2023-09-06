@@ -8,6 +8,8 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { ReviewsComponent } from './reviews/reviews.component';
 import { NewsMoreComponent } from './news-more/news-more.component';
+import { LegalNoticeComponent } from './legal-notice/legal-notice.component';
+import { DataProtectionComponent } from './data-protection/data-protection.component';
 
 const routes: Routes = [
   { path: 'sign-in', component: SignInComponent },
@@ -15,10 +17,12 @@ const routes: Routes = [
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: '', component: SignInComponent },
-  { path: 'user', component: UserComponent },
-  { path: 'user/:id', component: UserDetailComponent },
+  { path: 'customer', component: UserComponent },
+  { path: 'customer/:id', component: UserDetailComponent },
   { path: 'reviews', component: ReviewsComponent },
-  { path: 'news-more', component: NewsMoreComponent }
+  { path: 'news', component: NewsMoreComponent },
+  { path: 'legal-notice', component: LegalNoticeComponent },
+  { path: 'privacy-policy', component: DataProtectionComponent }
 ];
 
 @NgModule({

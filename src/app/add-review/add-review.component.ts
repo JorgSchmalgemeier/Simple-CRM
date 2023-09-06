@@ -4,20 +4,20 @@ import { MatDialogRef } from '@angular/material/dialog';
 import { Review } from 'src/moduls/review.class';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Validators } from '@angular/forms';
-// import { doc, deleteDoc } from 'firebase/firestore';
-// import { initializeApp } from '@angular/fire/app';
-// import { environment } from 'src/environments/environment';
-// import { Firestore, getFirestore } from '@angular/fire/firestore';
-// import { AnyObject } from 'chart.js/dist/types/basic';
+
 
 @Component({
   selector: 'app-add-review',
   templateUrl: './add-review.component.html',
   styleUrls: ['./add-review.component.scss'],
 })
+
 export class AddReviewComponent {
   review: Review = new Review();
   reviewDate!: Date;
+  loading = false;
+  today = new Date();
+
 
   addReviewForm = new FormGroup({
     productForm: new FormControl('', [Validators.required]),
@@ -88,8 +88,11 @@ export class AddReviewComponent {
     private firestore: AngularFirestore
   ) {}
 
-  loading = false;
 
+  /**
+   * Start saving process and leed to the next function which will save the product is the right firebase collection
+   *
+   */
   saveReview() {
     this.loading = true;
     this.review.date = this.reviewDate.getTime();
@@ -105,23 +108,37 @@ export class AddReviewComponent {
     }
   }
 
+
+  /**
+   * Save the review in the right firebase collection
+   *
+   * @param product - The name of the firebase collection
+   */
   saveReviewForProduct(product: string) {
     this.setDate();
     this.firestore
       .collection(product)
       .add(this.review.reviewToJSON())
       .then((result: any) => {
-        console.log('Adding review finished', result);
         this.loading = false;
         this.closeDialog();
       });
   }
 
 
+  /**
+   * This function closes the add review dialog
+   *
+   */
   closeDialog() {
     this.dialogRef.close();
   }
 
+
+  /**
+   * This function get the day, month and year from the date and save it
+   *
+   */
   setDate() {
     this.review.day = new Date(this.review.date).getDate();
     this.review.month = new Date(this.review.date).getMonth() +1;

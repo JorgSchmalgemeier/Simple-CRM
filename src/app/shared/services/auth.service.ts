@@ -36,13 +36,10 @@ export class AuthService {
 
   // Sign in with email/password
   SignIn(email: string, password: string) {
-    console.log('mail:', email,'password:', password);
     return this.afAuth
       .signInWithEmailAndPassword(email, password)
       .then((result) => {
-        console.log(result);
         this.SetUserData(result.user);
-        console.log('test1');
         this.afAuth.authState.subscribe((user) => {
           if (user) {
             this.router.navigate(['dashboard']);

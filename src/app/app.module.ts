@@ -46,6 +46,8 @@ import { NgChartsModule } from 'ng2-charts';
 import { AddReviewComponent } from './add-review/add-review.component';
 import { ReviewsComponent } from './reviews/reviews.component';
 import { NewsMoreComponent } from './news-more/news-more.component';
+import { LegalNoticeComponent } from './legal-notice/legal-notice.component';
+import { DataProtectionComponent } from './data-protection/data-protection.component';
 
 @NgModule({
   declarations: [
@@ -62,6 +64,8 @@ import { NewsMoreComponent } from './news-more/news-more.component';
     ReviewsComponent,
     AddReviewComponent,
     NewsMoreComponent,
+    LegalNoticeComponent,
+    DataProtectionComponent,
   ],
   imports: [
     BrowserModule,

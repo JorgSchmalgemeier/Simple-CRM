@@ -4,61 +4,55 @@
   <div mat-dialog-content class="mat-dialog-content">
     <form [formGroup]="editUserForm">
     <div>
-      <mat-form-field class="mat-form-field margin-right" appearance="outline">
+      <mat-form-field class="mat-form-field margin-right responsive-width" appearance="outline">
         <mat-label>First name</mat-label>
-        <input [disabled]="loading" formControlName="firstNameForm" [(ngModel)]="user.firstName" matInput placeholder="First name"/>
+        <input [disabled]="loading" formControlName="firstNameForm" [(ngModel)]="customer.firstName" matInput placeholder="First name"/>
         <div class="alert-letters-container" *ngIf="firstNameForm?.invalid && (firstNameForm?.dirty || firstNameForm?.touched)">
           <div class="alert-letters" *ngIf="firstNameForm?.errors?.['required']">First name is required.</div>
           <div class="alert-letters" *ngIf="firstNameForm?.errors?.['pattern']">Only letters, no space.</div>
         </div>
-        <!-- <mat-hint>Please enter a name</mat-hint> -->
       </mat-form-field>
-      <mat-form-field class="mat-form-field" appearance="outline">
+      <mat-form-field class="mat-form-field responsive-width" appearance="outline">
         <mat-label>Last name</mat-label>
-        <input [disabled]="loading" formControlName="lastNameForm" [(ngModel)]="user.lastName" matInput placeholder="Last name" />
+        <input [disabled]="loading" formControlName="lastNameForm" [(ngModel)]="customer.lastName" matInput placeholder="Last name" />
         <div class="alert-letters-container" *ngIf="lastNameForm?.invalid && (lastNameForm?.dirty || lastNameForm?.touched)">
           <div class="alert-letters" *ngIf="lastNameForm?.errors?.['required']">Last name is required.</div>
           <div class="alert-letters" *ngIf="lastNameForm?.errors?.['pattern']">Only letters, no space.</div>
         </div>
-        <!-- <mat-hint>Please enter a name</mat-hint> -->
       </mat-form-field>
     </div>
 
     <div>
       <mat-form-field class="mat-form-field" appearance="outline" class="full-width">
         <mat-label>Birth date</mat-label>
-        <input [disabled]="loading" formControlName="birthDateForm" [(ngModel)]="birthDate" matInput placeholder="Birth date" [matDatepicker]="picker1"/>
+        <input [disabled]="loading" [max]="today" formControlName="birthDateForm" [(ngModel)]="birthDate" matInput placeholder="Birth date" [matDatepicker]="picker1"/>
         <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
         <mat-datepicker #picker1></mat-datepicker>
         <div class="alert-letters-container" *ngIf="birthDateForm?.invalid && (birthDateForm?.dirty || birthDateForm?.touched)">
           <div class="alert-letters" *ngIf="birthDateForm?.errors?.['required']">Birth date is required.</div>
         </div>
-        <!-- <mat-hint>Please enter a date</mat-hint> -->
       </mat-form-field>
     </div>
 
     <div>
-      <mat-form-field class="mat-form-field margin-right" appearance="outline">
+      <mat-form-field class="mat-form-field margin-right responsive-width" appearance="outline">
         <mat-label>Phone</mat-label>
-        <input [disabled]="loading" formControlName="phoneForm" [(ngModel)]="user.phone" matInput placeholder="Phone" />
+        <input [disabled]="loading" formControlName="phoneForm" [(ngModel)]="customer.phone" matInput placeholder="Phone" />
         <div class="alert-letters-container" *ngIf="phoneForm?.invalid && (phoneForm?.dirty || phoneForm?.touched)">
           <div class="alert-letters" *ngIf="phoneForm?.errors?.['required']">Phone number is required.</div>
           <div class="alert-letters" *ngIf="phoneForm?.errors?.['pattern']">Only numbers, no space.</div>
         </div>
-        <!-- <mat-hint>Please enter an email address</mat-hint> -->
       </mat-form-field>
-      <mat-form-field class="mat-form-field" appearance="outline">
+      <mat-form-field class="mat-form-field responsive-width" appearance="outline">
         <mat-label>E-Mail</mat-label>
-        <input [disabled]="loading" formControlName="emailForm" [(ngModel)]="user.email" matInput placeholder="E-Mail" />
+        <input [disabled]="loading" formControlName="emailForm" [(ngModel)]="customer.email" matInput placeholder="E-Mail" />
         <div class="alert-letters-container" *ngIf="emailForm?.invalid && (emailForm?.dirty || emailForm?.touched)">
           <div class="alert-letters" *ngIf="emailForm?.errors?.['required']">Email address is required.</div>
           <div class="alert-letters" *ngIf="emailForm?.errors?.['email']">Email address is not valid.</div>
         </div>
-        <!-- <mat-hint>Please enter an email address</mat-hint> -->
       </mat-form-field>
     </div>
   </form>
-
 
   </div>
   <div mat-dialog-actions class="btn-box">
@@ -66,5 +60,3 @@
     <button [disabled]="loading" (click)="saveUser()" [disabled]="editUserForm.invalid" mat-button cdkFocusInitial>Save</button>
   </div>
   </div>
-
-

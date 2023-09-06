@@ -3,6 +3,7 @@
   padding-right: 48px;
   padding-top: 32px;
   padding-bottom: 32px;
+  position: relative;
 }
 
 .headline-box {
@@ -12,10 +13,19 @@
   margin-bottom: 32px;
 }
 
+.btn-add-review {
+  background-color: #63AEFF !important;
+}
+
 .accordion-container {
   margin-bottom: 32px;
   position: relative;
 }
+
+.mat-form-field-appearance-outline.mat-focused
+  .mat-form-field-outline-thick {
+  color: red;
+  }
 
 .product-name {
   font-size: 18px;
@@ -23,6 +33,11 @@
   display: flex;
   align-items: center;
   margin-bottom: 5px;
+}
+
+.stars-amount {
+  display: flex;
+  align-items: center;
 }
 
 .star-img {
@@ -42,14 +57,6 @@
 .panel-header {
   padding: 5px 35px;
 }
-
-// .search-input {
-//   position: absolute;
-//   top: 70px;
-//   right: 29px;
-//   max-width: 189px;
-//   max-height: 70px;
-// }
 
 .all-reviews-box {
   display: flex;
@@ -131,13 +138,110 @@
   align-items: center;
 }
 
-.rating-box {
-}
-
 .span-text {
   margin: 5px 0;
 }
 
 .name-date {
   font-weight: 500;
+}
+
+
+//responsiv
+
+@media(max-width: 1200px) {
+  .reviews-container {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+
+
+@media(max-width: 700px) {
+  .headline-rating-box {
+    flex-direction: column;
+    align-items: start;
+  }
+}
+
+
+@media(max-width: 600px) {
+  .reviews-container {
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+
+  .product-name {
+    font-size: 17px;
+  }
+
+  .card-headline {
+    font-size: 17px;
+  }
+
+  .product-name {
+    flex-direction: column;
+    align-items: start;
+    margin-bottom: 12px;
+  }
+
+}
+
+
+@media(max-width: 500px) {
+  .headline-box {
+    flex-direction: column;
+    align-items: start;
+    margin-bottom: 16px;
+  }
+
+  .btn-add-review {
+    position: absolute;
+    right: 16px;
+    bottom: 0;
+  }
+
+  .search-box {
+    top: 65px;
+    right: unset;
+    left: 15px;
+  }
+
+  .panel-header {
+    padding: 5px 15px 5px 15px;
+  }
+}
+
+
+@media(max-width: 450px) {
+  .star-img {
+    width: 15px;
+  }
+  .review-card {
+    padding: 10px;
+  }
+
+}
+
+
+@media(max-width: 400px) {
+  .product-name {
+    font-size: 16px;
+  }
+}
+
+
+@media(max-width: 350px) {
+  .product-name {
+    font-size: 15px;
+  }
+}
+
+
+@media(max-width: 320px) {
+  .product-name {
+    font-size: 14px;
+  }
 }

@@ -6,3 +6,48 @@
   display: flex;
   justify-content: space-between;
 }
+
+
+//responsiv
+
+@media(max-width: 650px) {
+  .dialog-container {
+    width: 400px;
+  }
+}
+
+
+@media(max-width: 500px) {
+  .dialog-container {
+    width: 350px;
+  }
+
+  .responsive-width {
+    width: 100%;
+  }
+
+  .dialog-box {
+    flex-direction: column;
+  }
+}
+
+
+@media(max-width: 440px) {
+  .dialog-container {
+    width: 300px;
+  }
+}
+
+
+@media(max-width: 380px) {
+  .dialog-container {
+    width: 250px;
+  }
+}
+
+
+@media(max-width: 320px) {
+  .dialog-container {
+    width: 220px;
+  }
+}

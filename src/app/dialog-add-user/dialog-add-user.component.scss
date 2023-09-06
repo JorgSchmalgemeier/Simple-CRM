@@ -1,3 +1,37 @@
 h1 {
   margin-bottom: 5px;
 }
+
+
+//responsiv
+
+@media(max-width: 650px) {
+  .dialog-container {
+    width: 400px;
+  }
+
+  .responsive-width {
+    width: 100%;
+  }
+}
+
+
+@media(max-width: 500px) {
+  .dialog-container {
+    width: 300px;
+  }
+}
+
+
+@media(max-width: 380px) {
+  .dialog-container {
+    width: 250px;
+  }
+}
+
+
+@media(max-width: 320px) {
+  .dialog-container {
+    width: 220px;
+  }
+}

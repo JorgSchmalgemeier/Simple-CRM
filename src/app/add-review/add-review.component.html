@@ -4,7 +4,7 @@
   <div mat-dialog-content class="mat-dialog-content">
     <form [formGroup]="addReviewForm">
     <div class="dialog-box">
-      <mat-form-field class="margin-right">
+      <mat-form-field class="margin-right responsive-width">
         <mat-label>Select Product</mat-label>
         <mat-select [disabled]="loading" [(ngModel)]="review.product" formControlName="productForm">
           <mat-option value="Product One">Product One</mat-option>
@@ -48,7 +48,7 @@
     <div>
       <mat-form-field class="mat-form-field" appearance="outline" class="full-width">
         <mat-label>Date of review</mat-label>
-        <input [disabled]="loading" [(ngModel)]="reviewDate" formControlName="dateForm" matInput placeholder="Date of review" [matDatepicker]="picker2"/>
+        <input [disabled]="loading" [max]="today" [(ngModel)]="reviewDate" formControlName="dateForm" matInput placeholder="Date of review" [matDatepicker]="picker2"/>
         <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
         <mat-datepicker #picker2></mat-datepicker>
         <div class="alert-letters-container" *ngIf="dateForm?.invalid && (dateForm?.dirty || dateForm?.touched)">
@@ -75,5 +75,3 @@
     <button [disabled]="loading" [disabled]="addReviewForm.invalid" (click)="saveReview()" mat-button cdkFocusInitial>Save</button>
   </div>
   </div>
-
-

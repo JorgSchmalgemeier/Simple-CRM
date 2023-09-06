@@ -8,6 +8,7 @@ import { ReviewsService } from 'src/moduls/reviews.service';
   styleUrls: ['./dashboard.component.scss'],
   providers: [ReviewsService],
 })
+
 export class DashboardComponent implements OnInit {
   graphWeek: Boolean = true;
   graphMonth: Boolean = false;
@@ -37,14 +38,14 @@ export class DashboardComponent implements OnInit {
     'Product Three',
   ];
   public doughnutChartDatasetsWeek: ChartConfiguration<'doughnut'>['data']['datasets'] =
-    [{  data: [631, 467, 108],
+    [{  data: [631, 467, 280],
         label: 'Sales',
-        backgroundColor: ["#63AEFF","#ffd502","#45cb47"],
+        backgroundColor: ["#63AEFF","#ffd502","#5ede60"],
         //hoverBackgroundColor: ["#96b7b9","#718283","#5c6b6d"],
       }];
 
   public doughnutChartOptionsWeek: ChartConfiguration<'doughnut'>['options'] = {
-    responsive: false,
+    responsive: true,
     cutout: 95,
   };
 
@@ -55,15 +56,15 @@ export class DashboardComponent implements OnInit {
     'Product Three',
   ];
   public doughnutChartDatasetsMonth: ChartConfiguration<'doughnut'>['data']['datasets'] =
-    [{  data: [2567, 2098, 1268],
+    [{  data: [2567, 1998, 1860],
         label: 'Sales',
-        backgroundColor: ["#63AEFF","#ffd502","#45cb47"],
+        backgroundColor: ["#63AEFF","#ffd502","#5ede60"],
         //hoverBackgroundColor: ["#96b7b9","#718283","#5c6b6d"],
       }];
 
   public doughnutChartOptionsMonth: ChartConfiguration<'doughnut'>['options'] =
     {
-      responsive: false,
+      responsive: true,
       cutout: 95,
     };
 
@@ -74,25 +75,25 @@ export class DashboardComponent implements OnInit {
     'Product Three',
   ];
   public doughnutChartDatasetsYear: ChartConfiguration<'doughnut'>['data']['datasets'] =
-    [{  data: [7340, 7784, 1467],
+    [{  data: [21654, 11433, 14399],
         label: 'Sales',
-        backgroundColor: ["#63AEFF","#ffd502","#45cb47"],
+        backgroundColor: ["#63AEFF","#ffd502","#5ede60"],
         //hoverBackgroundColor: ["#96b7b9","#718283","#5c6b6d"],
       }];
 
   public doughnutChartOptionsYear: ChartConfiguration<'doughnut'>['options'] = {
-    responsive: false,
+    responsive: true,
     maintainAspectRatio: false,
     cutout: 95,
   };
 
-  //Line Chart 2023
 
+  //Line Chart 2023
   public lineChartData2023: ChartConfiguration<'line'>['data'] = {
     labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'],
     datasets: [
       {
-        data: [65, 59, 80, 81, 56, 55, 40, 45, 55],
+        data: [5836, 5787, 5950, 5960, 6129, 6190, 6028, 6280, 6320],
         label: 'Sales',
         fill: true,
         tension: 0.2,
@@ -102,12 +103,6 @@ export class DashboardComponent implements OnInit {
         pointBorderColor: 'rgba(0,0,0,0.2)',
         hoverBorderColor: 'rgba(0,0,0,0.2)',
         borderWidth: 1,
-
-        // data: [ 65, 59, 80, 81, 56, 55, 40 ],
-        // label: '2022',
-        // fill: true,
-        // tension: 0.1,
-        // hoverBorderColor: 'red',
       },
     ],
   };
@@ -129,6 +124,7 @@ export class DashboardComponent implements OnInit {
   };
   public lineChartLegend2023 = false;
 
+
   //Line Chart 2022
   public lineChartData2022: ChartConfiguration<'line'>['data'] = {
     labels: [
@@ -147,7 +143,7 @@ export class DashboardComponent implements OnInit {
     ],
     datasets: [
       {
-        data: [55, 58, 77, 79, 55, 55, 60, 55, 56, 67, 70, 71],
+        data: [3855, 4258, 4177, 4379, 4355, 4555, 4760, 4555, 4256, 4367, 4670, 4871],
         label: 'Sales',
         fill: true,
         tension: 0.2,
@@ -178,6 +174,7 @@ export class DashboardComponent implements OnInit {
   };
   public lineChartLegend2022 = false;
 
+
   //Line Chart 2021
   public lineChartData2021: ChartConfiguration<'line'>['data'] = {
     labels: [
@@ -196,7 +193,7 @@ export class DashboardComponent implements OnInit {
     ],
     datasets: [
       {
-        data: [30, 43, 55, 64, 55, 55, 60, 65, 56, 67, 80, 71],
+        data: [2330, 2143, 2555, 2764, 2855, 3255, 3360, 3665, 2956, 3767, 3880, 3971],
         label: 'Sales',
         fill: true,
         tension: 0.2,
@@ -227,36 +224,66 @@ export class DashboardComponent implements OnInit {
   };
   public lineChartLegend2021 = false;
 
+
+  /**
+   * Show the choosen graph and hide the others
+   *
+   */
   showGraphWeek() {
     this.graphMonth = false;
     this.graphYear = false;
     this.graphWeek = true;
   }
 
+
+  /**
+   * Show the choosen graph and hide the others
+   *
+   */
   showGraphMonth() {
     this.graphWeek = false;
     this.graphYear = false;
     this.graphMonth = true;
   }
 
+
+  /**
+   * Show the choosen graph and hide the others
+   *
+   */
   showGraphYear() {
     this.graphWeek = false;
     this.graphMonth = false;
     this.graphYear = true;
   }
 
+
+  /**
+   * Show the choosen graph and hide the others
+   *
+   */
   showLineChart2023() {
     this.lineChart2022 = false;
     this.lineChart2021 = false;
     this.lineChart2023 = true;
   }
 
+
+  /**
+   * Show the choosen graph and hide the others
+   *
+   */
   showLineChart2022() {
     this.lineChart2023 = false;
     this.lineChart2021 = false;
     this.lineChart2022 = true;
   }
 
+
+  /**
+   * Show the choosen graph and hide the others
+   *
+   */
   showLineChart2021() {
     this.lineChart2022 = false;
     this.lineChart2023 = false;

@@ -42,6 +42,5 @@ export class ReviewsService {
 
   sortByTimestamp(json: any) {
     json.sort((a: { date: number; }, b: { date: number; }) => a.date - b.date);
-    console.log('Sortiertes JSON-Array:', json);
   }
 }

@@ -13,6 +13,7 @@ import { ReviewsService } from 'src/moduls/reviews.service';
   styleUrls: ['./reviews.component.scss'],
   providers: [ReviewsService],
 })
+
 export class ReviewsComponent implements OnInit {
   panelOpenState = false;
   public loading = true;
@@ -43,15 +44,24 @@ export class ReviewsComponent implements OnInit {
     this.reviewsService.subscribeAllReviews();
     setTimeout(() => {
       this.loading = false;
-    }, 1500);
+    }, 1000);
   }
 
 
+  /**
+   * Opens the dialog to add a new review
+   *
+   */
   openDialog() {
     this.dialog.open(AddReviewComponent);
   }
 
 
+  /**
+   * Leed to the next function to filter the right product
+   *
+   * @param product - The product
+   */
   initFilter(product: any) {
     if (product == 'one') {
       this.filteredOne = true;
@@ -68,8 +78,13 @@ export class ReviewsComponent implements OnInit {
   }
 
 
+  /**
+   * This function filters the list with the right product and shows just the filtered results
+   *
+   * @param inputField - The used input field
+   * @param productJSON - The product the user would like to filter
+   */
   filterProductReviews(inputField: any, productJSON: any) {
-    console.log(inputField.nativeElement?.value, productJSON);
     let input = inputField.nativeElement?.value.toLowerCase();
 
     let filter = productJSON.filter((obj: any) => {
@@ -77,6 +92,18 @@ export class ReviewsComponent implements OnInit {
               obj.costumerName.toLowerCase().includes(input)
     })
 
+    this.setFilteredJson(productJSON, filter);
+    this.showAllReviews(input, productJSON);
+  }
+
+
+  /**
+   * This function sets the filtered json
+   *
+   * @param productJSON - The json the user would like to filter
+   * @param filter - The result of the filter
+   */
+  setFilteredJson(productJSON: any, filter:any) {
     if (productJSON == this.reviewsService.reviewsProductOne) {
       this.currentReviewsProductOne = filter;
     }
@@ -86,7 +113,16 @@ export class ReviewsComponent implements OnInit {
     if (productJSON == this.reviewsService.reviewsProductThree) {
       this.currentReviewsProductThree = filter;
     }
+  }
 
+
+  /**
+   * Show all reviews if the input field is empty
+   *
+   * @param input - The input field
+   * @param productJSON - The json the user would like to filter
+   */
+  showAllReviews(input: any, productJSON: any) {
     if (input == '' && productJSON == this.reviewsService.reviewsProductOne) {
       this.filteredOne = false;
     }
@@ -99,6 +135,11 @@ export class ReviewsComponent implements OnInit {
   }
 
 
+  /**
+   * This function clears the input field
+   *
+   * @param product
+   */
   clearInput(product: any) {
     if (product == 'one') {
       this.inputOne.nativeElement.value = '';
@@ -114,6 +155,5 @@ export class ReviewsComponent implements OnInit {
     }
 
     this.reviewsService.subscribeAllReviews();
-
   }
 }

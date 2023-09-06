@@ -21,6 +21,11 @@ export class SignInComponent {
 
   constructor(public authService: AuthService) { }
 
+
+  /**
+   * This function hides the sign in dialog
+   *
+   */
   hideSignInLayout(): void {
     this.hideSignIn = true;
   }

@@ -1,7 +1,7 @@
 <div class="user-detail-container" >
 <div class="content-conatiner" *ngIf="!loading">
 <mat-card>
-  <button mat-icon-button class="pin-left-upper-corner" routerLink="/user" routerLinkActive="router-link-active" [matMenuTriggerFor]="userMenu">
+  <button mat-icon-button class="pin-left-upper-corner" routerLink="/customer" routerLinkActive="router-link-active" [matMenuTriggerFor]="userMenu">
     <mat-icon style="color: white;">arrow_back</mat-icon>
   </button>
   <button mat-icon-button class="pin-right-upper-corner" [matMenuTriggerFor]="userMenu">
@@ -13,25 +13,27 @@
   </mat-menu>
 
   <mat-card-content class="user-detail-header">
-    <img src="./assets/img/user.png">
+    <div class="icon-header-box">
+    <mat-icon class="user-icon">account_circle</mat-icon>
     <div class="user-detail">
-      <h2>{{ user.firstName }} {{ user.lastName }}</h2>
+      <h2>{{ customer.firstName }} {{ customer.lastName }}</h2>
       <div class="contact-box">
         <div class="contact-way-box">
           <span class="contact-way">Phone:</span>
-          <a href="tel:{{ user.phone }}">
+          <a href="tel:{{ customer.phone }}">
             <div class="icon-text-box">
               <mat-icon class="mail-icon">phone_forwarded</mat-icon>
-              <span class="contact-span">{{ user.phone }}</span>
+              <span class="contact-span">{{ customer.phone }}</span>
             </div>
           </a>
         </div>
+    </div>
         <div class="contact-way-box">
           <span class="contact-way">Email:</span>
-          <a href="mailto:{{ user.email }}">
+          <a href="mailto:{{ customer.email }}">
             <div class="icon-text-box">
               <mat-icon class="mail-icon">outgoing_mail</mat-icon>
-              <span class="contact-span">{{ user.email }}</span>
+              <span class="contact-span">{{ customer.email }}</span>
             </div>
           </a>
         </div>
@@ -50,11 +52,12 @@
   </mat-menu>
 
   <mat-card-header>
-    <mat-card-title>Address</mat-card-title>
+    <mat-card-title class="address">Address</mat-card-title>
   </mat-card-header>
   <mat-card-content>
-    {{ user.street }} <br>
-    {{ user.zipCode }} {{ user.city }}
+    <span class="address-text">{{ customer.street }} <br></span>
+    <span class="address-text">{{ customer.zipCode }} {{ customer.city }}</span>
+
   </mat-card-content>
 </mat-card>
 </div>

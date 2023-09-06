@@ -1,0 +1,55 @@
+.data-protection {
+  padding: 32px;
+  word-wrap: break-word;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+h1 {
+  font-size: 32px;
+}
+
+h3 {
+  font-size: 21px;
+}
+
+h4 {
+  font-size: 21px;
+  font-weight: 500;
+}
+
+p {
+  font-size: 16px;
+}
+
+.bold {
+  font-weight: 500;
+}
+
+
+//responsive
+
+@media(max-width: 600px) {
+  .data-protection {
+    padding: 16px;
+  }
+
+  h1 {
+    font-size: 27px;
+  }
+
+  h3 {
+    font-size: 18px;
+  }
+
+  h4 {
+    font-size: 18px;
+  }
+
+  p {
+    font-size: 14px;
+  }
+}
