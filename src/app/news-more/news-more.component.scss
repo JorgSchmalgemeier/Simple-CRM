@@ -13,9 +13,14 @@
 
 .mat-card-title {
   min-height: 40px;
+  min-height: 100px;
   max-height: 100px;
   max-width: 364px;
-  overflow-y: auto;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .mat-card-title::-webkit-scrollbar {
@@ -42,6 +47,7 @@
 
 .summary {
   margin-top: 15px;
+  min-height: 80px;
   max-height: 80px;
   overflow-y: auto;
 }
@@ -70,6 +76,12 @@
   .news-img {
     height: 200px;
   }
+
+  .mat-card-title {
+    -webkit-line-clamp: 2;
+    min-height: 68px;
+    max-height: 68px;
+  }
 }
 
 
@@ -95,6 +107,10 @@
 
   .news-img {
     height: 100px;
+  }
+
+  .mat-card-title {
+    min-height: 66px;
   }
 }
 

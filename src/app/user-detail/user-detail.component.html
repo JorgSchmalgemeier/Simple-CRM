@@ -1,16 +1,12 @@
 <div class="user-detail-container" >
 <div class="content-conatiner" *ngIf="!loading">
 <mat-card>
-  <button mat-icon-button class="pin-left-upper-corner" routerLink="/customer" routerLinkActive="router-link-active" [matMenuTriggerFor]="userMenu">
+  <button mat-icon-button class="pin-left-upper-corner" routerLink="/customer" routerLinkActive="router-link-active">
     <mat-icon style="color: white;">arrow_back</mat-icon>
   </button>
-  <button mat-icon-button class="pin-right-upper-corner" [matMenuTriggerFor]="userMenu">
-    <mat-icon style="color: white;">more_vert</mat-icon>
+  <button mat-icon-button class="pin-right-upper-corner" (click)="editUserDetails()">
+    <mat-icon style="color: white;">edit</mat-icon>
   </button>
-
-  <mat-menu #userMenu="matMenu">
-    <button mat-menu-item (click)="editUserDetails()">Edit</button>
-  </mat-menu>
 
   <mat-card-content class="user-detail-header">
     <div class="icon-header-box">
@@ -43,13 +39,9 @@
 </mat-card>
 
 <mat-card class="mt-32">
-  <button mat-icon-button class="pin-right-upper-corner" [matMenuTriggerFor]="adressMenu">
-    <mat-icon>more_vert</mat-icon>
+  <button mat-icon-button class="pin-right-upper-corner" (click)="editMenu()">
+    <mat-icon>edit</mat-icon>
   </button>
-
-  <mat-menu #adressMenu="matMenu">
-    <button mat-menu-item (click)="editMenu()">Edit</button>
-  </mat-menu>
 
   <mat-card-header>
     <mat-card-title class="address">Address</mat-card-title>

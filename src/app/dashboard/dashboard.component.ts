@@ -56,7 +56,7 @@ export class DashboardComponent implements OnInit {
     'Product Three',
   ];
   public doughnutChartDatasetsMonth: ChartConfiguration<'doughnut'>['data']['datasets'] =
-    [{  data: [2567, 1998, 1860],
+    [{  data: [2567, 1698, 1860],
         label: 'Sales',
         backgroundColor: ["#63AEFF","#ffd502","#5ede60"],
         //hoverBackgroundColor: ["#96b7b9","#718283","#5c6b6d"],
@@ -75,7 +75,7 @@ export class DashboardComponent implements OnInit {
     'Product Three',
   ];
   public doughnutChartDatasetsYear: ChartConfiguration<'doughnut'>['data']['datasets'] =
-    [{  data: [21654, 11433, 14399],
+    [{  data: [17654, 18433, 24399],
         label: 'Sales',
         backgroundColor: ["#63AEFF","#ffd502","#5ede60"],
         //hoverBackgroundColor: ["#96b7b9","#718283","#5c6b6d"],

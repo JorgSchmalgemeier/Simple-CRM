@@ -47,22 +47,33 @@
   padding-bottom: 0 !important;
 }
 
+.margin-btn {
+  margin-right: 16px !important;
+}
+
 .text-box {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 75%;
+  width: 100%;
   margin-bottom: 16px;
   font-size: 16px !important;
-  padding-left: 11px;
   height: 25px;
+}
+
+.headline-total-sales {
+  margin-left: 26px;
+}
+
+.headline-product-sales {
+  margin-left: 36px;
 }
 
 .text-box-line-chart {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 92%;
+  width: 100%;
   margin-bottom: 8px;
   font-size: 16px !important;
   height: 25px;
@@ -71,7 +82,7 @@
 .btn-show-more {
   display: flex;
   flex-direction: row-reverse;
-  margin-right: -9px;
+  margin-right: 26px;
 }
 
 .legend-box {
@@ -225,10 +236,6 @@
   .legend-box {
     width: 75%;
   }
-
-  .text-box {
-    width: 88%;
-  }
 }
 
 
@@ -299,10 +306,6 @@
   .card-reviews {
     width: 100%;
   }
-
-  .text-box-line-chart {
-    width: 71%;
-  }
 }
 
 
@@ -333,10 +336,6 @@
 
   .rating-box {
     margin-bottom: 3px;
-  }
-
-  .text-box-line-chart {
-    width: 82%;
   }
 }
 
@@ -419,12 +418,13 @@
   .text-span {
     font-size: 13px;
   }
-}
 
+  .headline-total-sales {
+    margin-left: 11px;
+  }
 
-@media(max-width: 550px) {
-  .text-box-line-chart {
-    width: 93%;
+  .headline-product-sales {
+    margin-left: 21px;
   }
 }
 
@@ -562,7 +562,6 @@
 
   .text-box {
     margin-bottom: 6px;
-    width: 100%;
   }
 
   .legend-box {

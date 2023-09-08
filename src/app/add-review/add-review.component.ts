@@ -25,7 +25,7 @@ export class AddReviewComponent {
     titleForm: new FormControl('', [Validators.required]),
     textForm: new FormControl('', [Validators.required]),
     dateForm: new FormControl('', [Validators.required]),
-    customerNameForm: new FormControl('', [Validators.required])
+    customerNameForm: new FormControl('', [Validators.required, Validators.pattern("^[a-zA-ZöÖüÜäÄß ]+$")])
   });
 
 

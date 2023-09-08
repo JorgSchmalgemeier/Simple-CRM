@@ -141,6 +141,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   }
 }
 
+.cdk-overlay-pane {
+}
+
 
 //responsivness
 
@@ -154,6 +157,18 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 @media(max-width: 600px) {
   .headline {
     font-size: 19px;
+  }
+}
+
+
+@media(max-width: 500px) {
+  .cdk-overlay-pane {
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+
+  mat-dialog-content {
+    max-height: 80vh;
   }
 }
 

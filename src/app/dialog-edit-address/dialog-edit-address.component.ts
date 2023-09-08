@@ -19,7 +19,7 @@ export class DialogEditAddressComponent {
   editAddressForm = new FormGroup({
     streetForm: new FormControl('', [Validators.required]),
     zipCodeForm: new FormControl('', [Validators.required, Validators.pattern("^[0-9]*$")]),
-    cityForm: new FormControl('', [Validators.required, Validators.pattern("^[a-zA-ZöÖüÜäÄß\s]+$")])
+    cityForm: new FormControl('', [Validators.required, Validators.pattern("^[a-zA-ZöÖüÜäÄß ]+$")])
   });
 
 

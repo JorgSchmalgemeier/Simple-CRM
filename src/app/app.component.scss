@@ -38,6 +38,10 @@
   img {
     width: 150px;
     object-fit: cover;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 }
 

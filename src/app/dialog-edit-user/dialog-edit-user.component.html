@@ -1,5 +1,5 @@
 <div class="dialog-container">
-  <h1 mat-dialog-title>Edit user</h1>
+  <h1 mat-dialog-title>Edit customer</h1>
   <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
   <div mat-dialog-content class="mat-dialog-content">
     <form [formGroup]="editUserForm">
@@ -9,7 +9,7 @@
         <input [disabled]="loading" formControlName="firstNameForm" [(ngModel)]="customer.firstName" matInput placeholder="First name"/>
         <div class="alert-letters-container" *ngIf="firstNameForm?.invalid && (firstNameForm?.dirty || firstNameForm?.touched)">
           <div class="alert-letters" *ngIf="firstNameForm?.errors?.['required']">First name is required.</div>
-          <div class="alert-letters" *ngIf="firstNameForm?.errors?.['pattern']">Only letters, no space.</div>
+          <div class="alert-letters" *ngIf="firstNameForm?.errors?.['pattern']">Use only letters.</div>
         </div>
       </mat-form-field>
       <mat-form-field class="mat-form-field responsive-width" appearance="outline">
@@ -17,7 +17,7 @@
         <input [disabled]="loading" formControlName="lastNameForm" [(ngModel)]="customer.lastName" matInput placeholder="Last name" />
         <div class="alert-letters-container" *ngIf="lastNameForm?.invalid && (lastNameForm?.dirty || lastNameForm?.touched)">
           <div class="alert-letters" *ngIf="lastNameForm?.errors?.['required']">Last name is required.</div>
-          <div class="alert-letters" *ngIf="lastNameForm?.errors?.['pattern']">Only letters, no space.</div>
+          <div class="alert-letters" *ngIf="lastNameForm?.errors?.['pattern']">Use only letters.</div>
         </div>
       </mat-form-field>
     </div>
@@ -40,7 +40,7 @@
         <input [disabled]="loading" formControlName="phoneForm" [(ngModel)]="customer.phone" matInput placeholder="Phone" />
         <div class="alert-letters-container" *ngIf="phoneForm?.invalid && (phoneForm?.dirty || phoneForm?.touched)">
           <div class="alert-letters" *ngIf="phoneForm?.errors?.['required']">Phone number is required.</div>
-          <div class="alert-letters" *ngIf="phoneForm?.errors?.['pattern']">Only numbers, no space.</div>
+          <div class="alert-letters" *ngIf="phoneForm?.errors?.['pattern']">Use only numbers.</div>
         </div>
       </mat-form-field>
       <mat-form-field class="mat-form-field responsive-width" appearance="outline">

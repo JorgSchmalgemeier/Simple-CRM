@@ -1,5 +1,5 @@
 <div class="dialog-container">
-<h1 mat-dialog-title>Add user</h1>
+<h1 mat-dialog-title>Add customer</h1>
 <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
 <div mat-dialog-content class="mat-dialog-content">
   <form [formGroup]="addUserForm">
@@ -9,7 +9,7 @@
       <input [disabled]="loading" [(ngModel)]="customer.firstName" formControlName="firstNameForm" matInput placeholder="First name"/>
       <div class="alert-letters-container" *ngIf="firstNameForm?.invalid && (firstNameForm?.dirty || firstNameForm?.touched)">
         <div class="alert-letters" *ngIf="firstNameForm?.errors?.['required']">First name is required.</div>
-        <div class="alert-letters" *ngIf="firstNameForm?.errors?.['pattern']">Only letters, no space.</div>
+        <div class="alert-letters" *ngIf="firstNameForm?.errors?.['pattern']">Use only letters.</div>
       </div>
     </mat-form-field>
 
@@ -18,7 +18,7 @@
       <input [disabled]="loading" [(ngModel)]="customer.lastName" formControlName="lastNameForm" matInput placeholder="Last name" />
       <div class="alert-letters-container" *ngIf="lastNameForm?.invalid && (lastNameForm?.dirty || lastNameForm?.touched)">
         <div class="alert-letters" *ngIf="lastNameForm?.errors?.['required']">Last name is required.</div>
-        <div class="alert-letters" *ngIf="lastNameForm?.errors?.['pattern']">Only letters, no space.</div>
+        <div class="alert-letters" *ngIf="lastNameForm?.errors?.['pattern']">Use only letters.</div>
       </div>
     </mat-form-field>
   </div>
@@ -41,7 +41,7 @@
       <input [disabled]="loading" [(ngModel)]="customer.phone" formControlName="phoneForm" matInput placeholder="Phone" />
       <div class="alert-letters-container" *ngIf="phoneForm?.invalid && (phoneForm?.dirty || phoneForm?.touched)">
         <div class="alert-letters" *ngIf="phoneForm?.errors?.['required']">Phone number is required.</div>
-        <div class="alert-letters" *ngIf="phoneForm?.errors?.['pattern']">Only numbers, no space.</div>
+        <div class="alert-letters" *ngIf="phoneForm?.errors?.['pattern']">Use only numbers.</div>
       </div>
     </mat-form-field>
     <mat-form-field class="mat-form-field responsive-width" appearance="outline">
@@ -70,7 +70,7 @@
       <input [disabled]="loading" [(ngModel)]="customer.zipCode" formControlName="zipCodeForm" matInput placeholder="Zip code" />
       <div class="alert-letters-container" *ngIf="zipCodeForm?.invalid && (zipCodeForm?.dirty || zipCodeForm?.touched)">
         <div class="alert-letters" *ngIf="zipCodeForm?.errors?.['required']">Zip code is required.</div>
-        <div class="alert-letters" *ngIf="zipCodeForm?.errors?.['pattern']">Only numbers, no space.</div>
+        <div class="alert-letters" *ngIf="zipCodeForm?.errors?.['pattern']">Use only numbers.</div>
       </div>
     </mat-form-field>
     <mat-form-field class="mat-form-field responsive-width" appearance="outline">
@@ -78,7 +78,7 @@
       <input [disabled]="loading" [(ngModel)]="customer.city" formControlName="cityForm" matInput placeholder="City" />
       <div class="alert-letters-container" *ngIf="cityForm?.invalid && (cityForm?.dirty || cityForm?.touched)">
         <div class="alert-letters" *ngIf="cityForm?.errors?.['required']">City is required.</div>
-        <div class="alert-letters" *ngIf="cityForm?.errors?.['pattern']">Only letters, no space.</div>
+        <div class="alert-letters" *ngIf="cityForm?.errors?.['pattern']">Use only letters.</div>
       </div>
     </mat-form-field>
   </div>

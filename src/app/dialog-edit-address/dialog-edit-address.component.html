@@ -19,7 +19,7 @@
         <input [disabled]="loading" [(ngModel)]="customer.zipCode" formControlName="zipCodeForm" matInput placeholder="Zip code" />
         <div class="alert-letters-container" *ngIf="zipCodeForm?.invalid && (zipCodeForm?.dirty || zipCodeForm?.touched)">
           <div class="alert-letters" *ngIf="zipCodeForm?.errors?.['required']">Zip code is required.</div>
-          <div class="alert-letters" *ngIf="zipCodeForm?.errors?.['pattern']">Only numbers, no space.</div>
+          <div class="alert-letters" *ngIf="zipCodeForm?.errors?.['pattern']">Use only numbers.</div>
         </div>
       </mat-form-field>
       <mat-form-field class="mat-form-field responsive-width" appearance="outline">
@@ -27,7 +27,7 @@
         <input [disabled]="loading" [(ngModel)]="customer.city" formControlName="cityForm" matInput placeholder="City" />
         <div class="alert-letters-container" *ngIf="cityForm?.invalid && (cityForm?.dirty || cityForm?.touched)">
           <div class="alert-letters" *ngIf="cityForm?.errors?.['required']">City is required.</div>
-          <div class="alert-letters" *ngIf="cityForm?.errors?.['pattern']">Only letters, no space.</div>
+          <div class="alert-letters" *ngIf="cityForm?.errors?.['pattern']">Use only letters.</div>
         </div>
       </mat-form-field>
     </div>

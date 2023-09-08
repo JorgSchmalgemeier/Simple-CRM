@@ -64,6 +64,7 @@
         <input [disabled]="loading" matInput placeholder="Full name" formControlName="customerNameForm" [(ngModel)]="review.costumerName" />
         <div class="alert-letters-container" *ngIf="customerNameForm?.invalid && (customerNameForm?.dirty || customerNameForm?.touched)">
           <div class="alert-letters" *ngIf="customerNameForm?.errors?.['required']">Name is required.</div>
+          <div class="alert-letters" *ngIf="customerNameForm?.errors?.['pattern']">Use only letters.</div>
         </div>
         <!-- <mat-hint>Please enter an email address</mat-hint> -->
       </mat-form-field>

@@ -1,10 +1,11 @@
 <div class="sign-in-container" *ngIf="!hideSignIn">
 
-  <img class="logo" src="assets/img/logo.png">
-
   <mat-card>
     <mat-card-content class="mat-card-content">
-      <h1 mat-dialog-title>Log-in</h1>
+      <div class="header">
+        <h1 mat-dialog-title>Log-in</h1>
+        <img class="logo" src="assets/img/logo.png">
+      </div>
       <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
 
     <form class="example-form" [formGroup]="signInForm">
@@ -31,7 +32,7 @@
 
         <div mat-dialog-actions class="btn-container">
           <div class="btn-box-log-in">
-            <button class="sign-in-btn" [disabled]="loading" mat-button (click)="authService.SignIn(userName.value, userPassword.value)">Sign-in</button>
+            <button class="sign-in-btn" [disabled]="loading" mat-button (click)="authService.SignIn(userName.value, userPassword.value)">Log-in</button>
             <button routerLink="/dashboard" (click)="hideSignInLayout()" [disabled]="loading" mat-button cdkFocusInitial>Guest log-in</button>
           </div>
         </div>

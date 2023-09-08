@@ -19,10 +19,10 @@ export class DialogEditUserComponent implements OnInit {
   today = new Date();
 
   editUserForm = new FormGroup({
-    firstNameForm: new FormControl('', [Validators.required, Validators.pattern("^[a-zA-ZöÖüÜäÄß\s]+$")]),
-    lastNameForm: new FormControl('', [Validators.required, Validators.pattern("^[a-zA-ZöÖüÜäÄß\s]+$")]),
+    firstNameForm: new FormControl('', [Validators.required, Validators.pattern("^[a-zA-ZöÖüÜäÄß ]+$")]),
+    lastNameForm: new FormControl('', [Validators.required, Validators.pattern("^[a-zA-ZöÖüÜäÄß ]+$")]),
     birthDateForm: new FormControl('', [Validators.required]),
-    phoneForm: new FormControl('', [Validators.required, Validators.pattern("^[0-9+]*$")]),
+    phoneForm: new FormControl('', [Validators.required, Validators.pattern("^[0-9+ ]*$")]),
     emailForm: new FormControl('', [Validators.required, Validators.email,])
   });
 
