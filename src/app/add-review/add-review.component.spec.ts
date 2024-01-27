@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AddReviewComponent } from './add-review.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 describe('AddReviewComponent', () => {
   let component: AddReviewComponent;
@@ -8,6 +9,7 @@ describe('AddReviewComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
+      imports: [MatDialogModule],
       declarations: [AddReviewComponent]
     });
     fixture = TestBed.createComponent(AddReviewComponent);

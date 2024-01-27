@@ -27,7 +27,7 @@ export class DashboardComponent implements OnInit {
 
     setTimeout(() => {
       this.loading = false;
-    }, 1500);
+    }, 2000);
   }
 
 
@@ -90,10 +90,10 @@ export class DashboardComponent implements OnInit {
 
   //Line Chart 2023
   public lineChartData2023: ChartConfiguration<'line'>['data'] = {
-    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'],
+    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
     datasets: [
       {
-        data: [5836, 5787, 5950, 5960, 6129, 6190, 6028, 6280, 6320],
+        data: [5836, 5787, 5950, 5960, 6129, 6190, 6028, 6280, 6320, 6280, 6340, 6500],
         label: 'Sales',
         fill: true,
         tension: 0.2,
